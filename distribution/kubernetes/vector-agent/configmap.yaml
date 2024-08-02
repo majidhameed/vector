@@ -34,7 +34,7 @@ data:
       elasticsearch:
         type: elasticsearch
         inputs: [kubernetes_logs]
-        host: "http://elasticsearch-7-service.datastores.svc.cluster.local:9200"
+        endpoints: ["http://elasticsearch-7-service.datastores.svc.cluster.local:9200"]
         index: "vector-k8s-%F"
       stdout:
         type: console

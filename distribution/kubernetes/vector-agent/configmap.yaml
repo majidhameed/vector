@@ -19,22 +19,13 @@ data:
     sources:
       kubernetes_logs:
         type: kubernetes_logs
-      host_metrics:
-        filesystem:
-          devices:
-            excludes: [binfmt_misc]
-          filesystems:
-            excludes: [binfmt_misc]
-          mountpoints:
-            excludes: ["*/proc/sys/fs/binfmt_misc"]
-        type: host_metrics
-      internal_metrics:
-        type: internal_metrics
     sinks:
       elasticsearch:
         type: elasticsearch
         inputs: [kubernetes_logs]
         endpoints: ["http://elasticsearch-7-service.datastores.svc.cluster.local:9200"]
+        bulk:
+          index: {{elastic_index}}-%Y-%m-%d-%H
       stdout:
         type: console
         inputs: [kubernetes_logs]

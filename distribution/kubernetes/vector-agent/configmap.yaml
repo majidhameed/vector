@@ -32,10 +32,10 @@ data:
         type: internal_metrics
     sinks:
       elasticsearch:
-        type = elasticsearch
-        inputs = [kubernetes_logs]
-        host = "http://elasticsearch-7-service.datastores.svc.cluster.local:9200"
-        index = "vector-k8s-%F"
+        type: elasticsearch
+        inputs: [kubernetes_logs]
+        host= "http://elasticsearch-7-service.datastores.svc.cluster.local:9200"
+        index: "vector-k8s-%F"
       stdout:
         type: console
         inputs: [kubernetes_logs]

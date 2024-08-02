@@ -25,7 +25,7 @@ data:
         inputs: [kubernetes_logs]
         endpoints: ["http://elasticsearch-7-service.datastores.svc.cluster.local:9200"]
         bulk:
-          index: "{{elastic_index}}-%Y-%m-%d-%H"
+          index: "test-%Y-%m-%d-%H"
       stdout:
         type: console
         inputs: [kubernetes_logs]
